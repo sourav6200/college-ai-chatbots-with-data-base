@@ -9,21 +9,24 @@ A full-stack AI chatbot powered by **Google Gemini API** with a **SQLite databas
 ### 1. Welcome Screen — New Conversation
 > The app opens with a clean welcome screen. The left sidebar shows your full chat history with timestamps and message counts. Click any past conversation to instantly restore it.
 
-![Welcome Screen](ss_welcome.png)
+<img width="1505" height="837" alt="image" src="https://github.com/user-attachments/assets/df15630b-a25c-432c-aa5b-e9f61eae2b75" />
+
 
 ---
 
 ### 2. Active Conversation — AI Responses with Markdown
 > Messages appear in styled bubbles. AI responses render **bold text**, bullet points, numbered lists, and code blocks automatically. The active session is highlighted in the sidebar.
 
-![Active Chat](ss_chat.png)
+<img width="1347" height="814" alt="image" src="https://github.com/user-attachments/assets/c444e1e9-50d6-42cd-a7e2-a41d1e0843b1" />
+
 
 ---
 
 ### 3. Search History — Filter Past Conversations
 > Type in the search bar to filter through all saved conversations in real time. Results highlight instantly. The green dot at the bottom confirms the SQLite database is live.
 
-![Search History](ss_history.png)
+<img width="347" height="808" alt="image" src="https://github.com/user-attachments/assets/2fc694d1-6053-4af6-be41-6661836bd853" />
+
 
 ---
 
