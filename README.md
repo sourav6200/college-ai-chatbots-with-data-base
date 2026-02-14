@@ -1,6 +1,11 @@
 # 🤖 College AI Chatbot - Google Gemini API
 
 A simple and functional AI chatbot web application built using Google Gemini API for college projects.
+ visual
+ <img width="981" height="832" alt="image" src="https://github.com/user-attachments/assets/f06b5a32-6ff3-4fce-8a6e-918d18c38b95" />
+ <img width="352" height="824" alt="image" src="https://github.com/user-attachments/assets/ce8fafb9-d676-49e5-a933-57e93fe29b86" />
+<img width="1427" height="835" alt="image" src="https://github.com/user-attachments/assets/27e98914-3ee7-40f1-b60f-2bcb9a00a358" />
+
 
 ## 📋 Features
 
