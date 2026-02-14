@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI ChatBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="logo-wrap-sm">
+                    <div class="logo-inner-sm">&#10022;</div>
+                </div>
+                <span class="sidebar-brand">Ai Chatbot</span>
+            </div>
+            <button class="new-chat-btn" onclick="newChat()" title="New Conversation">
+                &#43; New Chat
+            </button>
+        </div>
+
+        <div class="history-search-wrap">
+            <span class="search-icon">&#9906;</span>
+            <input
+                type="text"
+                id="historySearch"
+                class="history-search"
+                placeholder="Search conversations..."
+                oninput="onHistorySearch(this.value)"
+            >
+        </div>
+
+        <div class="section-label">History</div>
+
+        <div class="session-list" id="sessionList">
+            <div class="empty-history">No conversations yet.<br>Start chatting!</div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="db-badge">
+                <span class="db-dot"></span>
+                <span>SQLite DB</span>
+            </div>
+            <div class="stat-row">
+                <div class="stat-cell">
+                    <span class="stat-val" id="statSessions">0</span>
+                    <span class="stat-lbl">chats</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-cell">
+                    <span class="stat-val" id="statMessages">0</span>
+                    <span class="stat-lbl">messages</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ── MAIN CHAT ── -->
+    <div class="chat-main">
+
+        <header class="header">
+            <div class="header-left">
+                <div class="logo-wrap">
+                    <div class="logo-ring"></div>
+                    <div class="logo-inner">&#10022;</div>
+                </div>
+                <div class="header-info">
+                    <h1 id="sessionTitle">New Conversation</h1>
+                    <p>Powered by Google Gemini API</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status-dot">Online</div>
+            </div>
+        </header>
+
+        <div class="chat-area" id="chatArea">
+            <div class="welcome" id="welcomeScreen">
+                <div class="welcome-icon">&#10022;</div>
+                <h2>How can I help you?</h2>
+                <p>Ask me anything — from coding questions to study help, I'm here for you.</p>
+                <div class="suggestion-chips">
+                    <div class="chip" onclick="useChip(this)">&#129504; Explain neural networks</div>
+                    <div class="chip" onclick="useChip(this)">&#128187; Help me debug code</div>
+                    <div class="chip" onclick="useChip(this)">&#128221; Write a project summary</div>
+                    <div class="chip" onclick="useChip(this)">&#128290; Solve a math problem</div>
+                    <div class="chip" onclick="useChip(this)">&#128640; Give me project ideas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-wrap">
+                <textarea
+                    id="userInput"
+                    placeholder="Ask anything..."
+                    rows="1"
+                    onkeydown="handleKey(event)"
+                    oninput="autoResize(this)"
+                ></textarea>
+                <div class="input-controls">
+                    <button class="btn-clear" onclick="clearChat()" title="Clear chat">&#10005;</button>
+                    <button class="btn-send" id="sendBtn" onclick="sendMessage()" title="Send">&#10148;</button>
+                </div>
+            </div>
+            <div class="input-footer">
+                <div class="model-badge">gemini &middot; College Project</div>
+                <div class="hint-text">Press <kbd>Enter</kbd> to send &middot; <kbd>Shift+Enter</kbd> new line</div>
+            </div>
+        </div>
+
+    </div><!-- end chat-main -->
+</div><!-- end app -->
+
+<script>
+    marked.use({ breaks: true, gfm: true });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+═══════════════════════════════════════════════════════════════
+  COLLEGE CHATBOT - QUICK SETUP GUIDE
+═══════════════════════════════════════════════════════════════
+
+📋 STEP-BY-STEP INSTRUCTIONS:
+
+STEP 1: GET YOUR API KEY
+-------------------------
+1. Open your browser and go to: https://aistudio.google.com/app/apikey
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the entire API key (starts with "AIza...")
+
+STEP 2: ADD YOUR API KEY
+-------------------------
+1. Open the ".env" file in this folder
+2. Replace "YOUR_GEMINI_API_KEY_HERE" with your actual API key
+3. Save the file
+
+Example:
+GEMINI_API_KEY=AIzaSyD1234567890abcdefghijklmnop
+
+STEP 3: INSTALL DEPENDENCIES
+-----------------------------
+Open terminal/command prompt in this folder and run:
+
+    npm install
+
+Wait for all packages to download and install.
+
+STEP 4: RUN THE SERVER
+----------------------
+In the same terminal, run:
+
+    node server.js
+
+You should see: "🚀 Server running on http://localhost:3000"
+
+STEP 5: OPEN IN BROWSER
+------------------------
+1. Open your web browser
+2. Go to: http://localhost:3000
+3. Start chatting!
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ TROUBLESHOOTING:
+
+Problem: "npm not found"
+Solution: Install Node.js from https://nodejs.org/
+
+Problem: "Cannot find module"
+Solution: Run "npm install" again
+
+Problem: "Invalid API key"
+Solution: Check that you copied the entire API key correctly in .env
+
+Problem: "Port 3000 already in use"
+Solution: Change PORT in server.js to 3001
+
+Problem: Chatbot not responding
+Solution: Check console for errors, make sure API key is valid
+
+═══════════════════════════════════════════════════════════════
+
+📞 NEED HELP?
+
+- Check README.md for detailed documentation
+- View server logs in the terminal for errors
+- Make sure your internet connection is working
+- Verify API key is active at https://aistudio.google.com/
+
+═══════════════════════════════════════════════════════════════
+
+🎯 FOR YOUR PRESENTATION:
+
+Key Features to Demonstrate:
+✅ Real-time AI responses
+✅ Conversation context memory
+✅ Clean user interface
+✅ Error handling
+✅ Clear chat functionality
+
+Good Questions to Ask the Bot:
+- "Explain how neural networks work"
+- "Help me with my Python project"
+- "What is the difference between AI and ML?"
+- "Write a simple JavaScript function"
+
+═══════════════════════════════════════════════════════════════
+
+Good luck with your college project! 🚀
