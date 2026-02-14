@@ -223,11 +223,6 @@ const PORT = 3001;
 - For production, set `GEMINI_API_KEY` as an environment variable on the server
 
 ---
-
-## 📄 License
-
-MIT License — free to use for educational and personal projects.
-
 ---
 
 ## 👨‍💻 Author
