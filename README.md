@@ -1,166 +1,232 @@
-# 🤖 College AI Chatbot - Google Gemini API
+# 🤖 AI ChatBot — College Project
 
-A simple and functional AI chatbot web application built using Google Gemini API for college projects.
- ## 💻 UI
-
-<img width="1427" height="835" alt="image" src="https://github.com/user-attachments/assets/27e98914-3ee7-40f1-b60f-2bcb9a00a358" />
-
-
-## 📋 Features
-
-- ✅ Interactive chat interface
-- ✅ Conversation history maintained
-- ✅ Real-time responses from Google Gemini AI
-- ✅ Clean and responsive UI
-- ✅ Clear chat functionality
-- ✅ Loading indicators
-- ✅ Error handling
-
-## 🛠️ Technologies Used
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js, Express.js
-- **AI API**: Google Gemini API
-- **Dependencies**: 
-  - express
-  - @google/generative-ai
-  - dotenv
-  - cors
-
-## 📦 Installation
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm (Node Package Manager)
-- Google Gemini API Key
-
-### Steps
-
-1. **Get your Gemini API Key**
-   - Go to https://aistudio.google.com/app/apikey
-   - Sign in with your Google account
-   - Create a new API key
-   - Copy the API key
-
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure API Key**
-   - Open the `.env` file
-   - Replace `YOUR_GEMINI_API_KEY_HERE` with your actual API key
-   ```
-   GEMINI_API_KEY=your_actual_api_key_here
-   ```
-
-## 🚀 How to Run
-
-1. **Start the Server**
-   ```bash
-   npm start
-   ```
-   or
-   ```bash
-   node server.js
-   ```
-
-2. **Open in Browser**
-   - Navigate to: http://localhost:3000
-   - Start chatting with the AI assistant!
-
-## 📁 Project Structure
-
-```
-college-chatbot/
-├── .env                 # Environment variables (API key)
-├── package.json         # Project dependencies
-├── server.js           # Express server & API integration
-├── README.md           # Project documentation
-└── public/
-    ├── index.html      # Main HTML file
-    ├── style.css       # Styling
-    └── script.js       # Frontend JavaScript
-```
-
-## 💡 Usage
-
-1. Type your question in the input field
-2. Press Enter or click the "Send" button
-3. Wait for the AI to respond
-4. Continue the conversation
-5. Click "Clear" to reset the chat
-
-## 🎯 Use Cases
-
-- General knowledge questions
-- Study help and explanations
-- Code assistance
-- Writing help
-- Project ideas
-- Research assistance
-
-## 🔧 Troubleshooting
-
-### Server won't start
-- Make sure all dependencies are installed: `npm install`
-- Check if port 3000 is already in use
-- Verify Node.js is installed: `node --version`
-
-### API errors
-- Verify your API key is correct in the `.env` file
-- Check your internet connection
-- Ensure you haven't exceeded API quota
-
-### Can't connect to server
-- Make sure the server is running
-- Check you're using the correct URL: http://localhost:3000
-- Disable any ad blockers or VPN that might interfere
-
-## 🎓 For College Presentation
-
-### Key Points to Highlight:
-1. **Technology Stack**: Modern web technologies
-2. **API Integration**: Successfully integrated Google's latest AI
-3. **User Experience**: Clean, responsive interface
-4. **Functionality**: Real conversation with context memory
-5. **Code Quality**: Well-structured, commented code
-
-### Demo Script:
-1. Show the clean interface
-2. Ask a general question (e.g., "What is AI?")
-3. Ask a follow-up question to demonstrate context
-4. Show error handling (disconnect server briefly)
-5. Demonstrate clear chat feature
-6. Explain the code architecture
-
-## 🚀 Future Improvements
-
-- [ ] Add voice input/output
-- [ ] Implement user authentication
-- [ ] Save chat history to database
-- [ ] Add different AI personalities
-- [ ] Support for image inputs
-- [ ] Dark mode toggle
-- [ ] Export chat conversations
-- [ ] Multi-language support
-
-## 📝 License
-
-This project is open source and available for educational purposes.
-
-## 👨‍💻 Author
-
-Your Name - Sourav
-
-## 🙏 Acknowledgments
-
-- Google Gemini API for AI capabilities
-- Express.js for backend framework
-- All open-source contributors
+A full-stack AI chatbot powered by **Google Gemini API** with a **SQLite database** for persistent chat history. Built with Node.js, Express, and a sleek dark-themed UI.
 
 ---
 
-**Note**: Remember to never share your API key publicly. Always use environment variables for sensitive information.
+## 📸 UI Screenshots
 
-For issues or questions, please create an issue in the repository or contact the project maintainer.
+### 1. Welcome Screen — New Conversation
+> The app opens with a clean welcome screen. The left sidebar shows your full chat history with timestamps and message counts. Click any past conversation to instantly restore it.
+
+![Welcome Screen](ss_welcome.png)
+
+---
+
+### 2. Active Conversation — AI Responses with Markdown
+> Messages appear in styled bubbles. AI responses render **bold text**, bullet points, numbered lists, and code blocks automatically. The active session is highlighted in the sidebar.
+
+![Active Chat](ss_chat.png)
+
+---
+
+### 3. Search History — Filter Past Conversations
+> Type in the search bar to filter through all saved conversations in real time. Results highlight instantly. The green dot at the bottom confirms the SQLite database is live.
+
+![Search History](ss_history.png)
+
+---
+
+## ✨ Features
+
+- 💬 **Real-time AI chat** powered by Google Gemini (`gemini-2.5-flash-lite`)
+- 🗄️ **SQLite database** via `sql.js` — no Visual Studio or C++ build tools needed on Windows
+- 📜 **Persistent chat history** — all conversations saved across server restarts
+- 🔍 **Search & filter** past conversations from the sidebar in real time
+- ➕ **Multiple sessions** — start new chats and freely switch between old ones
+- 🗑️ **Delete conversations** individually with one click
+- 📊 **Live DB stats** — total chats and messages shown at all times
+- ✨ **Markdown rendering** — bold, code blocks, lists, tables all render correctly
+- 📱 **Responsive design** — sidebar hides on mobile for a clean single-column layout
+
+---
+
+## 🗂️ Project Structure
+
+```
+college-chatbot/
+├── public/
+│   ├── index.html       # Frontend UI (sidebar + chat window)
+│   ├── script.js        # Frontend logic (sessions, API calls, rendering)
+│   └── style.css        # Dark-themed styles
+├── server.js            # Express server + Gemini API + SQLite DB
+├── package.json         # Project dependencies
+├── .env                 # Your Gemini API key (do NOT commit this)
+├── .gitignore           # Ignores node_modules, .env, chatbot.db
+└── chatbot.db           # SQLite database file (auto-created on first run)
+```
+
+> **Note:** `index.html`, `script.js`, and `style.css` must be inside a `public/` folder so Express can serve them as static files.
+
+---
+
+## ⚙️ Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- A **Google Gemini API key** — get one free at [aistudio.google.com](https://aistudio.google.com/app/apikey)
+
+---
+
+## 🚀 Setup & Installation
+
+### 1. Clone or download the project
+
+```bash
+git clone https://github.com/your-username/college-chatbot.git
+cd college-chatbot
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+> ✅ **No Visual Studio or C++ build tools required** — `sql.js` is pure JavaScript/WebAssembly.
+
+### 3. Configure your API key
+
+Create a `.env` file in the root folder:
+
+```
+GEMINI_API_KEY=your_actual_api_key_here
+```
+
+Replace `your_actual_api_key_here` with your key from Google AI Studio.
+
+### 4. Move frontend files to `public/`
+
+```
+mkdir public
+move index.html public\
+move script.js  public\
+move style.css  public\
+```
+
+### 5. Start the server
+
+```bash
+npm start
+```
+
+### 6. Open the app
+
+Go to **http://localhost:3000** in your browser.
+
+---
+
+## ▶️ How It Works
+
+```
+User types message
+      ↓
+Frontend (script.js) sends POST /chat  { message, history, sessionId }
+      ↓
+Server (server.js) calls Google Gemini API
+      ↓
+Gemini returns AI reply
+      ↓
+Server saves user message + AI reply to chatbot.db (SQLite)
+      ↓
+Server returns { reply, sessionId } to frontend
+      ↓
+Frontend renders reply as Markdown, updates sidebar stats
+```
+
+---
+
+## 🗄️ Database
+
+The app uses **SQLite** via `sql.js` — a pure JavaScript port compiled to WebAssembly. No native build tools needed on any platform. The database file `chatbot.db` is created automatically on first run.
+
+### Tables
+
+**`sessions`** — One row per conversation
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | TEXT | Unique session ID |
+| `title` | TEXT | Auto-generated from first message |
+| `created_at` | INTEGER | Unix timestamp (ms) |
+| `updated_at` | INTEGER | Unix timestamp (ms) |
+| `message_count` | INTEGER | Total messages in this session |
+
+**`messages`** — One row per chat message
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | TEXT | Unique message ID |
+| `session_id` | TEXT | Links to `sessions.id` |
+| `role` | TEXT | `user` or `model` |
+| `content` | TEXT | Full message text |
+| `timestamp` | INTEGER | Unix timestamp (ms) |
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/chat` | Send a message, get AI reply |
+| `GET` | `/sessions` | List all sessions (supports `?q=search`) |
+| `GET` | `/sessions/:id/messages` | Get all messages in a session |
+| `DELETE` | `/sessions/:id` | Delete a session and its messages |
+| `PATCH` | `/sessions/:id` | Rename a session |
+| `GET` | `/stats` | Total sessions and messages count |
+| `GET` | `/health` | Server health check |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Markdown | [marked.js](https://marked.js.org/) v9 |
+| Backend | Node.js + Express.js |
+| AI Model | Google Gemini (`gemini-2.5-flash-lite`) |
+| Database | SQLite via [sql.js](https://sql.js.org/) |
+| Fonts | Google Fonts (Syne + DM Sans) |
+
+---
+
+## 🔧 Troubleshooting
+
+### `Error: Cannot find module 'sql.js'`
+Run `npm install` again from the project root folder.
+
+### `better-sqlite3` build error on Windows
+This project uses `sql.js` instead — no Visual Studio needed. Make sure your `package.json` lists `sql.js` and **not** `better-sqlite3`.
+
+### `Failed to get response from AI`
+- Check that `.env` exists with a valid `GEMINI_API_KEY`
+- Make sure you have an active internet connection
+- Verify your key at [aistudio.google.com](https://aistudio.google.com)
+
+### UI shows "Could not connect to server"
+- Confirm the server is running (`npm start`)
+- Open `http://localhost:3000` — don't open `index.html` directly as a file
+
+### Port 3000 already in use
+Change the port in `server.js`:
+```js
+const PORT = 3001;
+```
+
+---
+
+## 🔐 Security Notes
+
+- **Never commit your `.env` file** — it contains your private API key
+- The `.gitignore` already excludes `.env`, `node_modules`, and `chatbot.db`
+- For production, set `GEMINI_API_KEY` as an environment variable on the server
+
+---
+
+## 📄 License
+
+MIT License — free to use for educational and personal projects.
+
+---
+
+## 👨‍💻 Author
+
+Built as a college project demonstrating full-stack web development with AI integration.
